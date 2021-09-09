@@ -15,13 +15,13 @@ code {
 h2 {
   margin-top: 30;
   text-align: center;
-  color: #ffffff;
+  color: #212121;
 }
 h3 {
-  color: #ba68c8;
+  color: #3f51b5;
 }
 p {
-  color: #ffffff;
+  color: #212121;
 }
 .section {
   margin-top: 80px;
@@ -30,8 +30,8 @@ p {
   align-items: center;
 }
 .card {
-  width: 500px;
-  height: 600px;
+  width: 1000px;
+  height: 500px;
   padding: 20;
   display: flex;
   flex-direction: column;
@@ -39,17 +39,22 @@ p {
   align-items: center;
   color: white;
   text-align: center;
-  background-color: #212121;
+  background-color: #e5e5e5;
   border-radius: 20px;
   filter: drop-shadow(5mm 5mm 5rem #212121);
 }
 .card-section {
   border: 1px solid #414141;
-  width: 90%;
+  width: 450px;
+  margin-right: 20px;
   border-radius: 20px;
 }
-button {
-  background-color: #ba68c8;
+.section-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.buttonMain {
+  background-color: #3f51b5;
   padding: 15px 50px 15px 50px;
   border-radius: 40px;
   outline: none;
@@ -57,4 +62,18 @@ button {
   cursor: pointer;
   font-size: 15px;
   font-weight: 600;
+  color: #ffffff;
+  margin-right: 10px;
+}
+.buttonBalance {
+  background-color: #2e7d32;
+  padding: 15px 50px 15px 50px;
+  border-radius: 40px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-right: 10px;
 }
