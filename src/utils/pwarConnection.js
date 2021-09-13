@@ -2,7 +2,7 @@ import Web3 from "web3";
 
 let pwrConstant;
 pwrConstant = {
-  contractAddress: "0x16153214e683018d5aa318864c8e692b66e16778",
+  contractAddress: "0x16153214E683018D5aA318864c8e692b66E16778",
   abi: [
     {
       inputs: [
@@ -45,12 +45,7 @@ pwrConstant = {
           name: "from",
           type: "address",
         },
-        {
-          indexed: true,
-          internalType: "address",
-          name: "to",
-          type: "address",
-        },
+        { indexed: true, internalType: "address", name: "to", type: "address" },
         {
           indexed: false,
           internalType: "uint256",

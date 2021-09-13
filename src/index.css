@@ -18,20 +18,21 @@ h2 {
   color: #212121;
 }
 h3 {
-  color: #3f51b5;
+  color: #9c27b0;
+  font-size: 17px;
 }
 p {
   color: #212121;
 }
 .section {
-  margin-top: 80px;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .card {
-  width: 1000px;
-  height: 500px;
+  width: 800px;
+  min-height: 300px;
   padding: 20;
   display: flex;
   flex-direction: column;
@@ -45,16 +46,17 @@ p {
 }
 .card-section {
   border: 1px solid #414141;
-  width: 450px;
+  width: 240px;
   margin-right: 20px;
   border-radius: 20px;
 }
 .section-wrapper {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 .buttonMain {
-  background-color: #3f51b5;
+  background-color: #9c27b0;
   padding: 15px 50px 15px 50px;
   border-radius: 40px;
   outline: none;
@@ -76,4 +78,13 @@ p {
   font-weight: 600;
   color: #ffffff;
   margin-right: 10px;
+}
+
+input {
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  outline: none;
+  width: 300px;
+  border: 1px solid #bdbdbd;
 }

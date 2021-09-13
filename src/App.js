@@ -5,7 +5,7 @@ import {
   getMainBalance,
   getUserAddress,
 } from "./actions/Web3Actions";
-import { gerUserTokenBalance } from "./actions/SmartActions";
+import { gerUserTokenBalance, transferPwar } from "./actions/SmartActions";
 import "./App.css";
 
 function App() {
@@ -13,9 +13,13 @@ function App() {
     wallet: false,
     chainId: "Unavailable",
     address: "Unavailable",
-    balance: "0",
+    balance: 0,
   });
   const [balance, setBalance] = useState(0);
+
+  // States to handle transfer menthod
+  const [transferAddress, setTransferAddress] = useState("");
+  const [amount, setAmount] = useState(0);
 
   const connectButton = async () => {
     let wallet = await checkWalletAvailable();
@@ -38,10 +42,20 @@ function App() {
     setBalance(tokenBalance);
   };
 
+  //Function to transfer PolkaWar to other user
+  const transferPwartoUser = async () => {
+    let fromAdrress = data.address;
+    let toAddress = transferAddress;
+    let res = await transferPwar(fromAdrress, toAddress, amount);
+  };
+
   return (
     <div>
       <div className="section">
-        <div className="card">
+        <div
+          className="card"
+          style={{ backgroundColor: data.wallet ? "#dcedc8" : "white" }}
+        >
           <h2>Account Details</h2>
           <div className="section-wrapper">
             <div className="card-section">
@@ -50,15 +64,7 @@ function App() {
                 <strong>{data.wallet ? "Yes" : "No"}</strong>
               </p>
             </div>
-            <div className="card-section">
-              <h3>Address</h3>
-              <p>
-                <strong>{data.address}</strong>
-              </p>
-            </div>
-          </div>
-          <div className="section-wrapper">
-            {" "}
+
             <div className="card-section">
               <h3>Selected Network Chain ID</h3>
 
@@ -67,28 +73,56 @@ function App() {
               </p>
             </div>
             <div className="card-section">
-              <h3>Main Balance</h3>
-              <p>
-                <strong>{parseFloat(data.balance).toFixed(3)} BNB</strong>
-              </p>
-            </div>
-          </div>
-          <div className="section-wrapper">
-            {" "}
-            <div className="card-section">
               <h3>PolkaWar Balance</h3>
               <p>
-                <strong>{balance} </strong>
+                <strong>{parseFloat(balance).toFixed(1)} </strong>
               </p>
             </div>
           </div>
+
           <div className="section-wrapper">
-            {" "}
-            <button onClick={connectButton} className="buttonMain">
-              {data.wallet ? "Connected" : "Connect Metamask"}
-            </button>
+            {data.wallet ? (
+              ""
+            ) : (
+              <button onClick={connectButton} className="buttonMain">
+                Connect Metamask
+              </button>
+            )}
+
             <button onClick={getBalanceButton} className="buttonBalance">
               Get Balance
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="section">
+        <div
+          className="card"
+          style={{ backgroundColor: data.wallet ? "#dcedc8" : "white" }}
+        >
+          <h2>Transfer PolkaWar</h2>
+
+          <div className="section-wrapper">
+            <div>
+              <h3>Address</h3>
+              <input
+                type="text"
+                onChange={(e) => setTransferAddress(e.target.value)}
+                placeholder="Transfer Address"
+              />
+            </div>
+            <div>
+              <h3>Amount</h3>
+              <input
+                type="text"
+                onChange={(e) => setAmount(e.target.value)}
+                placeholder="Pwar Amount"
+              />
+            </div>
+          </div>
+          <div className="section-wrapper">
+            <button onClick={transferPwartoUser} className="buttonBalance">
+              Transfer balance
             </button>
           </div>
         </div>
