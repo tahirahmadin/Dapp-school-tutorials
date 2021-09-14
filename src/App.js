@@ -17,7 +17,7 @@ function App() {
   });
   const [balance, setBalance] = useState(0);
 
-  // States to handle transfer menthod
+  // 3. States to handle transfer menthod
   const [transferAddress, setTransferAddress] = useState("");
   const [amount, setAmount] = useState(0);
 
@@ -35,14 +35,14 @@ function App() {
     });
   };
 
-  //Function to get PolkaWar balance of user
+  //2. Function to get PolkaWar balance of user
   const getBalanceButton = async () => {
     let address = data.address;
     let tokenBalance = await gerUserTokenBalance(address);
     setBalance(tokenBalance);
   };
 
-  //Function to transfer PolkaWar to other user
+  //3. Function to transfer PolkaWar to other user
   const transferPwartoUser = async () => {
     let fromAdrress = data.address;
     let toAddress = transferAddress;
@@ -54,7 +54,7 @@ function App() {
       <div className="section">
         <div
           className="card"
-          style={{ backgroundColor: data.wallet ? "#dcedc8" : "white" }}
+          style={{ backgroundColor: data.wallet ? "#e3f2fd" : "white" }}
         >
           <h2>Account Details</h2>
           <div className="section-wrapper">
@@ -98,7 +98,7 @@ function App() {
       <div className="section">
         <div
           className="card"
-          style={{ backgroundColor: data.wallet ? "#dcedc8" : "white" }}
+          style={{ backgroundColor: data.wallet ? "#e3f2fd" : "white" }}
         >
           <h2>Transfer PolkaWar</h2>
 

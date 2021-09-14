@@ -12,11 +12,11 @@ export const gerUserTokenBalance = async (address) => {
 
 // Send Method - Transfer PWAR to some other account
 export const transferPwar = async (fromAddress, toAddress, amount) => {
-  let response = await pwrContract.methods
-    .transfer(toAddress, amount)
-    .send({ from: fromAddress });
+  let weiAmount = web3.utils.toWei(amount.toString(), "ether");
 
-  console.log(response);
+  let response = await pwrContract.methods
+    .transfer(toAddress, weiAmount)
+    .send({ from: fromAddress });
 
   return response;
 };
